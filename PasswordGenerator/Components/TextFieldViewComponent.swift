@@ -59,4 +59,9 @@ class TextFieldViewComponent: UIView {
             field.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
+    
+    // MARK: - Public functions
+    func getFieldData() -> String? {
+        return field.text
+    }
 }

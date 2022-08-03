@@ -9,6 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var isLowLetter: Bool = false
+    var isUpperLetter: Bool = false
+    var isNumber: Bool = false
+    var isCharacteres: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -59,24 +64,32 @@ class HomeViewController: UIViewController {
     private lazy var lowLetterView: SwitchComponent = {
         let component = SwitchComponent(titleLabel: "Usar letras minúsculas")
         component.translatesAutoresizingMaskIntoConstraints = false
+        component.delegate = self
+        component.switchTag = 0
         return component
     }()
     
     private lazy var upperLetterView: SwitchComponent = {
         let component = SwitchComponent(titleLabel: "Usar letras MAIÚSCULA")
         component.translatesAutoresizingMaskIntoConstraints = false
+        component.delegate = self
+        component.switchTag = 1
         return component
     }()
     
     private lazy var useNumberView: SwitchComponent = {
         let component = SwitchComponent(titleLabel: "Usar números")
         component.translatesAutoresizingMaskIntoConstraints = false
+        component.delegate = self
+        component.switchTag = 2
         return component
     }()
     
     private lazy var useSpecialCaracteresView: SwitchComponent = {
         let component = SwitchComponent(titleLabel: "Usar caracteres especiais")
         component.translatesAutoresizingMaskIntoConstraints = false
+        component.delegate = self
+        component.switchTag = 3
         return component
     }()
     
@@ -90,6 +103,7 @@ class HomeViewController: UIViewController {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.masksToBounds = true
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(generateNewPasswords)))
         return button
     }()
     
@@ -150,5 +164,40 @@ class HomeViewController: UIViewController {
             generateButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
+    
+    // MARK: - Actions
+    
+    @objc private func generateNewPasswords() {
+        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits) else { return }
+        
+        let viewController = ShowListPasswordsViewController()
+        viewController.requirements = PasswordModel(numberOfPasswords: totalPss, totalCharacteres: totalCharacteres, useLetters: isLowLetter, useNumbers: isNumber, useUpperCasedLetters: isUpperLetter, useSpecialChacaracters: isCharacteres)
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
+extension HomeViewController: SwitchViewDelegate {
+    func switchUpdate(_ toogle: UISwitch) {
+        switch toogle.tag {
+        case 0:
+            isLowLetter  = !isLowLetter
+        case 1:
+            isUpperLetter = !isUpperLetter
+        case 2:
+            isNumber = !isNumber
+        case 3:
+            isCharacteres = !isCharacteres
+        default:
+            break
+        }
+    }
+    
+}
+
+extension String {
+    var digits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted)
+            .joined()
+    }
+}

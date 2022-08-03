@@ -7,7 +7,21 @@
 
 import UIKit
 
+protocol SwitchViewDelegate: AnyObject {
+    func switchUpdate(_ toogle: UISwitch)
+}
+
 class SwitchComponent: UIView {
+    
+    var switchData: Bool = false
+    
+    weak var delegate: SwitchViewDelegate?
+    
+    var switchTag: Int? {
+        didSet {
+            self.switchView.tag = switchTag ?? 0
+        }
+    }
 
     init(titleLabel: String) {
         super.init(frame: .zero)
@@ -22,15 +36,6 @@ class SwitchComponent: UIView {
     
     // MARK: - UI Components
     
-//    private lazy var hStack: UIStackView = {
-//        let view = UIStackView(frame: .zero)
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.axis = .horizontal
-//        view.spacing = 16
-//        view.distribution = .fillProportionally
-//        return view
-//    }()
-    
     private lazy var title: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,14 +47,16 @@ class SwitchComponent: UIView {
     private lazy var switchView: UISwitch = {
         let switchView = UISwitch(frame: .zero)
         switchView.translatesAutoresizingMaskIntoConstraints = false
+//        switchView.onTintColor = Colors.primary700
+        switchView.transform = CGAffineTransform(scaleX: 0.80, y: 0.80)
+        switchView.addTarget(self, action: #selector(switchChanged(mySwitch:)), for: .valueChanged)
+        switchView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        switchView.isOn = false
         return switchView
     }()
     
     // MARK: - Setup
     private func setupView() {
-//        addSubview(hStack)
-//        hStack.addArrangedSubview(title)
-//        hStack.addArrangedSubview(switchView)
         addSubview(title)
         addSubview(switchView)
         
@@ -57,13 +64,6 @@ class SwitchComponent: UIView {
     }
     
     private func setupConstraints() {
-//        NSLayoutConstraint.activate([
-//            hStack.topAnchor.constraint(equalTo: topAnchor),
-//            hStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            hStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 1),
-//            hStack.bottomAnchor.constraint(equalTo: bottomAnchor)
-//        ])
-        
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -74,5 +74,9 @@ class SwitchComponent: UIView {
             switchView.trailingAnchor.constraint(equalTo: trailingAnchor),
             switchView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    @objc func switchChanged(mySwitch: UISwitch) {
+        delegate?.switchUpdate(mySwitch)
     }
 }
