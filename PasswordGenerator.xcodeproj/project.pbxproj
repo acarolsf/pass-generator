@@ -16,6 +16,12 @@
 		DE81199C2899CFF700B48F59 /* SwitchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81199B2899CFF700B48F59 /* SwitchComponent.swift */; };
 		DE81199F2899E7E500B48F59 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81199E2899E7E500B48F59 /* PasswordManager.swift */; };
 		DECCD968289ACCF8006677C8 /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCD967289ACCF8006677C8 /* TextFieldComponent.swift */; };
+		DECCD96A289ADB2B006677C8 /* ShowListPasswordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCD969289ADB2B006677C8 /* ShowListPasswordsViewController.swift */; };
+		DECCD96C289ADDBC006677C8 /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCD96B289ADDBC006677C8 /* PasswordTableViewCell.swift */; };
+		DED3D997289B1E7E00328994 /* ShowListPasswordsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D996289B1E7E00328994 /* ShowListPasswordsPresenter.swift */; };
+		DED3D999289B1F6300328994 /* PasswordGenerateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D998289B1F6300328994 /* PasswordGenerateModel.swift */; };
+		DED3D99D289B253100328994 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D99C289B253100328994 /* Threading.swift */; };
+		DED3D99F289B25A700328994 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		DE81199B2899CFF700B48F59 /* SwitchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchComponent.swift; sourceTree = "<group>"; };
 		DE81199E2899E7E500B48F59 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		DECCD967289ACCF8006677C8 /* TextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldComponent.swift; sourceTree = "<group>"; };
+		DECCD969289ADB2B006677C8 /* ShowListPasswordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListPasswordsViewController.swift; sourceTree = "<group>"; };
+		DECCD96B289ADDBC006677C8 /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
+		DED3D996289B1E7E00328994 /* ShowListPasswordsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListPasswordsPresenter.swift; sourceTree = "<group>"; };
+		DED3D998289B1F6300328994 /* PasswordGenerateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerateModel.swift; sourceTree = "<group>"; };
+		DED3D99C289B253100328994 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
+		DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,8 @@
 		DE8119802899CDF300B48F59 /* PasswordGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				DED3D99B289B252000328994 /* Common */,
+				DED3D99A289B23D400328994 /* Model */,
 				DE81199D2899E7C900B48F59 /* Manager */,
 				DE8119982899CFA900B48F59 /* Views */,
 				DE8119962899CF9800B48F59 /* Components */,
@@ -88,6 +102,7 @@
 				DE8119992899CFE700B48F59 /* TextFieldViewComponent.swift */,
 				DE81199B2899CFF700B48F59 /* SwitchComponent.swift */,
 				DECCD967289ACCF8006677C8 /* TextFieldComponent.swift */,
+				DECCD96B289ADDBC006677C8 /* PasswordTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -95,7 +110,8 @@
 		DE8119982899CFA900B48F59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DE8119852899CDF300B48F59 /* HomeViewController.swift */,
+				DED3D995289B1E5600328994 /* Show List Passwords */,
+				DED3D994289B1E4B00328994 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +122,40 @@
 				DE81199E2899E7E500B48F59 /* PasswordManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		DED3D994289B1E4B00328994 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DE8119852899CDF300B48F59 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DED3D995289B1E5600328994 /* Show List Passwords */ = {
+			isa = PBXGroup;
+			children = (
+				DECCD969289ADB2B006677C8 /* ShowListPasswordsViewController.swift */,
+				DED3D996289B1E7E00328994 /* ShowListPasswordsPresenter.swift */,
+			);
+			path = "Show List Passwords";
+			sourceTree = "<group>";
+		};
+		DED3D99A289B23D400328994 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DED3D998289B1F6300328994 /* PasswordGenerateModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DED3D99B289B252000328994 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DED3D99C289B253100328994 /* Threading.swift */,
+				DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +231,15 @@
 				DE81199F2899E7E500B48F59 /* PasswordManager.swift in Sources */,
 				DE8119862899CDF300B48F59 /* HomeViewController.swift in Sources */,
 				DE8119822899CDF300B48F59 /* AppDelegate.swift in Sources */,
+				DECCD96C289ADDBC006677C8 /* PasswordTableViewCell.swift in Sources */,
+				DED3D99D289B253100328994 /* Threading.swift in Sources */,
+				DED3D99F289B25A700328994 /* UIViewController+Extensions.swift in Sources */,
 				DE81199C2899CFF700B48F59 /* SwitchComponent.swift in Sources */,
 				DECCD968289ACCF8006677C8 /* TextFieldComponent.swift in Sources */,
+				DED3D997289B1E7E00328994 /* ShowListPasswordsPresenter.swift in Sources */,
+				DECCD96A289ADB2B006677C8 /* ShowListPasswordsViewController.swift in Sources */,
 				DE8119842899CDF300B48F59 /* SceneDelegate.swift in Sources */,
+				DED3D999289B1F6300328994 /* PasswordGenerateModel.swift in Sources */,
 				DE81199A2899CFE700B48F59 /* TextFieldViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,7 @@
 import Foundation
 
 class PasswordManager {
-    var totalCharacteres: Int
-    var useLetters: Bool
-    var useNumbers: Bool
-    var useUpperCasedLetters: Bool
-    var useSpecialChacaracters: Bool
+    var requirements: PasswordModel?
     
     var passwords: [String] = []
     
@@ -20,50 +16,57 @@ class PasswordManager {
     private let specialCharacters = "!@#$%^&*()_-+=~`]]}[{';?/<>,"
     private let numbers = "0123456789"
     
-    init(numberCaracters: Int, useLetters: Bool, useNumbers: Bool, useUpperCasedLetters: Bool, useSpecialChacaracters: Bool){
-        
-        var num = min(numberCaracters, 16)
+    func getRequiredData(requirements: PasswordModel, completion: @escaping(Result<[String], Error>) -> Void) {
+        var num = min(requirements.totalCharacteres, 16)
         num = max(num, 1)
+        self.requirements = requirements
+        self.requirements?.totalCharacteres = num
         
-        self.totalCharacteres = num
-        self.useLetters = useLetters
-        self.useNumbers = useNumbers
-        self.useUpperCasedLetters = useUpperCasedLetters
-        self.useSpecialChacaracters = useSpecialChacaracters
+        generate(total: num, completion: completion)
     }
     
-    func generate(total: Int) -> [String] {
+    func generate(total: Int, completion: @escaping(Result<[String], Error>) -> Void) {
         passwords.removeAll()
+        guard let requirements = requirements else {
+            completion(.failure(RequestErrors.noRequirement))
+            return
+        }
+
         var universe: String = ""
         
-        if useLetters{
+        if requirements.useLetters {
             universe += letters
         }
         
-        if useNumbers{
+        if requirements.useNumbers {
             universe += numbers
         }
         
-        if useSpecialChacaracters {
+        if requirements.useSpecialChacaracters {
             universe += specialCharacters
         }
         
-        if useUpperCasedLetters {
+        if requirements.useUpperCasedLetters {
             universe += letters.uppercased()
         }
         
-//        let universeArray = Array(universe)
+        let universeArray = Array(universe)
         while passwords.count < total {
             var password = ""
-//            for i in 1...totalCharacteres {
-//                let index = Int(arc4random_uniform(UInt32(universeArray.count)))
-//                password += String(universeArray[index])
-//            }
-            universe.forEach({ password += String($0) })
+            for _ in 1...requirements.totalCharacteres {
+                let index = Int(arc4random_uniform(UInt32(universeArray.count)))
+                password += String(universeArray[index])
+            }
+//            universe.forEach({ password += String($0) })
             
             passwords.append(password)
         }
-        return passwords
+        
+        completion(.success(passwords))
     }
     
+}
+
+enum RequestErrors: Error {
+    case noRequirement
 }
