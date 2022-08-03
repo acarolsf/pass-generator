@@ -110,6 +110,11 @@ extension ShowListPasswordsViewController: UITableViewDelegate, UITableViewDataS
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = presenter.passwordsList[indexPath.row]
+        UIPasteboard.general.string = cell
+    }
+    
 }
 
 extension ShowListPasswordsViewController: ShowListPasswordsViewProtocol {
