@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  PasswordGenerator
+
+  Created by Ana Carolina Ferreira on 04/08/22.
+  
+*/
+
+"Gerador de senhas" = "Gerador de senhas";
+"Número de senhas" = "Número de senhas";
+"Total de caracteres" = "Total de caracteres";
+"Usar letras minúsculas" = "Usar letras minúsculas";
+"Usar letras MAIÚSCULA" = "Usar letras MAIÚSCULA";
+"Usar números" = "Usar números";
+"Usar caracteres especiais" = "Usar caracteres especiais";
+"Gerar" = "Gerar";
+"Todos os campos precisam ser preenchidos!" = "Todos os campos precisam ser preenchidos!";
+"Lista de senhas" = "Lista de senhas";
+"Gerar novas senhas" = "Gerar novas senhas";
+"Dicas de segurança" = "Dicas de segurança";
