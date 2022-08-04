@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Password Generator"
+        label.text = Constants.shared.appName
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,19 +50,19 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var numberOfPasswordsView: TextFieldViewComponent = {
-        let component = TextFieldViewComponent(titleLabel: "Número de senhas")
+        let component = TextFieldViewComponent(titleLabel: Constants.shared.numberOfPasswords)
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
     }()
     
     private lazy var totalOfCaracteresView: TextFieldViewComponent = {
-        let component = TextFieldViewComponent(titleLabel: "Total de caracteres")
+        let component = TextFieldViewComponent(titleLabel: Constants.shared.totalOfCharacteres)
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
     }()
     
     private lazy var lowLetterView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: "Usar letras minúsculas")
+        let component = SwitchComponent(titleLabel: Constants.shared.lowercasedLetters)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 0
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var upperLetterView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: "Usar letras MAIÚSCULA")
+        let component = SwitchComponent(titleLabel: Constants.shared.uppercasedLetters)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 1
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var useNumberView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: "Usar números")
+        let component = SwitchComponent(titleLabel: Constants.shared.useNumbers)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 2
@@ -86,7 +86,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var useSpecialCaracteresView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: "Usar caracteres especiais")
+        let component = SwitchComponent(titleLabel: Constants.shared.useSpecialCharacteres)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 3
@@ -95,7 +95,7 @@ class HomeViewController: UIViewController {
     
     private lazy var generateButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle("Gerar", for: .normal)
+        button.setTitle(Constants.shared.generate, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = .blue

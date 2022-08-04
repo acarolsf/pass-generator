@@ -18,11 +18,11 @@ class ShowListPasswordsViewController: UIViewController {
         setupUI()
         if let requirements = requirements {
             presenter.getPasswords(required: requirements)
-        } else { showAlertError(message: "Todos os campos precisam ser preenchidos!") }
+        } else { showAlertError(message: Constants.shared.allFieldsHasToBeFilled) }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = "Lista de senhas"
+        title = Constants.shared.listOfPasswords
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
         }
@@ -42,7 +42,7 @@ class ShowListPasswordsViewController: UIViewController {
     
     private lazy var newPasswords: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle("Gerar novas senhas", for: .normal)
+        button.setTitle(Constants.shared.generateNewPasswords, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = .blue
@@ -55,7 +55,7 @@ class ShowListPasswordsViewController: UIViewController {
     
     private lazy var tips: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle("Dicas de Segurança", for: .normal)
+        button.setTitle(Constants.shared.securityTips, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = .blue
