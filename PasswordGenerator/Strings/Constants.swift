@@ -23,4 +23,12 @@ class Constants {
     let listOfPasswords = NSLocalizedString("Lista de senhas", comment: "")
     let generateNewPasswords = NSLocalizedString("Gerar novas senhas", comment: "")
     let securityTips = NSLocalizedString("Dicas de segurança", comment: "")
+    let save = NSLocalizedString("Salvar", comment: "")
+    
+    // MARK: - Size of the passwords
+    
+    let shortPassword = NSLocalizedString("Pequena - 6 dígitos", comment: "")
+    let mediumPassword = NSLocalizedString("Média - 8 dígitos", comment: "")
+    let largePassword = NSLocalizedString("Grande - 10 dígitos", comment: "")
+    let superLargePassword = NSLocalizedString("Muito grande - 12 dígitos", comment: "")
 }

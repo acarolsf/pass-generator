@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE5B1DB028A1C47400832D81 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5B1DAF28A1C47400832D81 /* UIColor+Extensions.swift */; };
+		DE5B1DB328A1C64C00832D81 /* SavePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5B1DB228A1C64C00832D81 /* SavePasswordViewController.swift */; };
 		DE8119822899CDF300B48F59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8119812899CDF300B48F59 /* AppDelegate.swift */; };
 		DE8119842899CDF300B48F59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8119832899CDF300B48F59 /* SceneDelegate.swift */; };
 		DE8119862899CDF300B48F59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8119852899CDF300B48F59 /* HomeViewController.swift */; };
@@ -15,6 +17,8 @@
 		DE81199A2899CFE700B48F59 /* TextFieldViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8119992899CFE700B48F59 /* TextFieldViewComponent.swift */; };
 		DE81199C2899CFF700B48F59 /* SwitchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81199B2899CFF700B48F59 /* SwitchComponent.swift */; };
 		DE81199F2899E7E500B48F59 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81199E2899E7E500B48F59 /* PasswordManager.swift */; };
+		DEADE126289C7AFA00F81237 /* UIPicker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADE125289C7AFA00F81237 /* UIPicker+Extensions.swift */; };
+		DEADE128289C81C400F81237 /* PickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADE127289C81C400F81237 /* PickerViewComponent.swift */; };
 		DEC2F9DC289C421900FEECB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2F9DB289C421900FEECB5 /* Constants.swift */; };
 		DEC2F9E0289C429A00FEECB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEC2F9E2289C429A00FEECB5 /* Localizable.strings */; };
 		DECCD968289ACCF8006677C8 /* TextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCD967289ACCF8006677C8 /* TextFieldComponent.swift */; };
@@ -27,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE5B1DAF28A1C47400832D81 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		DE5B1DB228A1C64C00832D81 /* SavePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePasswordViewController.swift; sourceTree = "<group>"; };
 		DE81197E2899CDF300B48F59 /* PasswordGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8119812899CDF300B48F59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE8119832899CDF300B48F59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		DE8119992899CFE700B48F59 /* TextFieldViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewComponent.swift; sourceTree = "<group>"; };
 		DE81199B2899CFF700B48F59 /* SwitchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchComponent.swift; sourceTree = "<group>"; };
 		DE81199E2899E7E500B48F59 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		DEADE125289C7AFA00F81237 /* UIPicker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPicker+Extensions.swift"; sourceTree = "<group>"; };
+		DEADE127289C81C400F81237 /* PickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponent.swift; sourceTree = "<group>"; };
 		DEC2F9DB289C421900FEECB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DEC2F9DF289C426B00FEECB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEC2F9E1289C429A00FEECB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -60,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE5B1DB128A1C63600832D81 /* Save Password */ = {
+			isa = PBXGroup;
+			children = (
+				DE5B1DB228A1C64C00832D81 /* SavePasswordViewController.swift */,
+			);
+			path = "Save Password";
+			sourceTree = "<group>";
+		};
 		DE8119752899CDF300B48F59 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +125,8 @@
 				DE81199B2899CFF700B48F59 /* SwitchComponent.swift */,
 				DECCD967289ACCF8006677C8 /* TextFieldComponent.swift */,
 				DECCD96B289ADDBC006677C8 /* PasswordTableViewCell.swift */,
+				DEADE125289C7AFA00F81237 /* UIPicker+Extensions.swift */,
+				DEADE127289C81C400F81237 /* PickerViewComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -116,6 +134,7 @@
 		DE8119982899CFA900B48F59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE5B1DB128A1C63600832D81 /* Save Password */,
 				DED3D995289B1E5600328994 /* Show List Passwords */,
 				DED3D994289B1E4B00328994 /* Home */,
 			);
@@ -169,6 +188,7 @@
 			children = (
 				DED3D99C289B253100328994 /* Threading.swift */,
 				DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */,
+				DE5B1DAF28A1C47400832D81 /* UIColor+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -244,7 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5B1DB328A1C64C00832D81 /* SavePasswordViewController.swift in Sources */,
+				DEADE128289C81C400F81237 /* PickerViewComponent.swift in Sources */,
 				DE81199F2899E7E500B48F59 /* PasswordManager.swift in Sources */,
+				DEADE126289C7AFA00F81237 /* UIPicker+Extensions.swift in Sources */,
 				DE8119862899CDF300B48F59 /* HomeViewController.swift in Sources */,
 				DE8119822899CDF300B48F59 /* AppDelegate.swift in Sources */,
 				DECCD96C289ADDBC006677C8 /* PasswordTableViewCell.swift in Sources */,
@@ -257,6 +280,7 @@
 				DE8119842899CDF300B48F59 /* SceneDelegate.swift in Sources */,
 				DEC2F9DC289C421900FEECB5 /* Constants.swift in Sources */,
 				DED3D999289B1F6300328994 /* PasswordGenerateModel.swift in Sources */,
+				DE5B1DB028A1C47400832D81 /* UIColor+Extensions.swift in Sources */,
 				DE81199A2899CFE700B48F59 /* TextFieldViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

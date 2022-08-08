@@ -57,7 +57,6 @@ class PasswordManager {
                 let index = Int(arc4random_uniform(UInt32(universeArray.count)))
                 password += String(universeArray[index])
             }
-//            universe.forEach({ password += String($0) })
             
             passwords.append(password)
         }

@@ -16,15 +16,15 @@ class ShowListPasswordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        if let requirements = requirements {
-            presenter.getPasswords(required: requirements)
-        } else { showAlertError(message: Constants.shared.allFieldsHasToBeFilled) }
+        generateNewSecrets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         title = Constants.shared.listOfPasswords
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
+            self.navigationController?.navigationBar.tintColor = .blue
+            self.navigationController?.navigationBar.barTintColor = .white
         }
     }
     
@@ -36,7 +36,12 @@ class ShowListPasswordsViewController: UIViewController {
         tableView.register(PasswordTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
+        tableView.layer.cornerRadius = 4
+        tableView.layer.borderWidth = 0.5
+        tableView.layer.borderColor = UIColor.gray.cgColor
+        tableView.layer.masksToBounds = true
         return tableView
     }()
     
@@ -45,11 +50,12 @@ class ShowListPasswordsViewController: UIViewController {
         button.setTitle(Constants.shared.generateNewPasswords, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .blue
+        button.backgroundColor = UIColor(hex: "#982465")
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.masksToBounds = true
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(newPass)))
         return button
     }()
     
@@ -58,16 +64,17 @@ class ShowListPasswordsViewController: UIViewController {
         button.setTitle(Constants.shared.securityTips, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .blue
+        button.backgroundColor = UIColor(hex: "#982465")
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.masksToBounds = true
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openTips)))
         return button
     }()
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hex: "#F2F2F2")
         view.addSubview(uiTableView)
         view.addSubview(newPasswords)
         view.addSubview(tips)
@@ -77,18 +84,18 @@ class ShowListPasswordsViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            uiTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            uiTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            uiTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            uiTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            uiTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            uiTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
             newPasswords.topAnchor.constraint(equalTo: uiTableView.bottomAnchor, constant: 16),
-            newPasswords.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            newPasswords.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            newPasswords.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            newPasswords.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             newPasswords.heightAnchor.constraint(equalToConstant: 48),
             
             tips.topAnchor.constraint(equalTo: newPasswords.bottomAnchor, constant: 16),
-            tips.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            tips.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tips.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            tips.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             tips.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             tips.heightAnchor.constraint(equalToConstant: 48)
         ])
@@ -96,6 +103,26 @@ class ShowListPasswordsViewController: UIViewController {
     
     private func backScreen() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func save(secret: String) {
+        let vc = SavePasswordViewController()
+        vc.secret = secret
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func generateNewSecrets() {
+        if let requirements = requirements {
+            presenter.getPasswords(required: requirements)
+        } else { showAlertError(message: Constants.shared.allFieldsHasToBeFilled) }
+    }
+    
+    @objc private func newPass() {
+        generateNewSecrets()
+    }
+    
+    @objc private func openTips() {
+        // add new modal
     }
 }
 
@@ -113,6 +140,7 @@ extension ShowListPasswordsViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = presenter.passwordsList[indexPath.row]
         UIPasteboard.general.string = cell
+        self.save(secret: cell)
     }
     
 }

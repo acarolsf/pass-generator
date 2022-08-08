@@ -1,5 +1,5 @@
 //
-//  TextFieldViewComponent.swift
+//  PickerViewComponent.swift
 //  PasswordGenerator
 //
 //  Created by Ana Carolina Ferreira on 02/08/22.
@@ -7,7 +7,23 @@
 
 import UIKit
 
-class TextFieldViewComponent: UIView {
+class PickerViewComponent: UIView {
+    
+    private var fieldText: String = ""
+    
+    var pickerOptions: [String] = []
+
+    var pickerDelegate: UIPickerViewDelegate? {
+        didSet {
+            self.field.delegate = pickerDelegate
+        }
+    }
+    
+    var pickerDataSource: UIPickerViewDataSource? {
+        didSet {
+            self.field.dataSource = pickerDataSource
+        }
+    }
 
     init(titleLabel: String) {
         super.init(frame: .zero)
@@ -28,15 +44,13 @@ class TextFieldViewComponent: UIView {
         return label
     }()
     
-    lazy var field: TextFieldComponent = {
-        let textfield = TextFieldComponent(frame: .zero)
+    lazy var field: UIPickerView = {
+        let textfield = UIPickerView(frame: .zero)
         textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.backgroundColor = .white
         textfield.layer.cornerRadius = 4
         textfield.layer.borderWidth = 0.5
         textfield.layer.borderColor = UIColor.gray.cgColor
         textfield.layer.masksToBounds = true
-        textfield.addDoneCancelToolbar()
         return textfield
     }()
     
@@ -64,6 +78,7 @@ class TextFieldViewComponent: UIView {
     
     // MARK: - Public functions
     func getFieldData() -> String? {
-        return field.text
+        return fieldText
     }
 }
+

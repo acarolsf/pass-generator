@@ -18,3 +18,7 @@
 "Lista de senhas" = "List of passwords";
 "Gerar novas senhas" = "Generate new passwords";
 "Dicas de segurança" = "Security tips";
+"Pequena - 6 dígitos" = "Short - 6 digits";
+"Média - 8 dígitos" = "Medium - 8 digits";
+"Grande - 10 dígitos" = "Large - 10 digits";
+"Muito grande - 12 dígitos" = "Super large - 12 digits";

@@ -14,10 +14,23 @@ class HomeViewController: UIViewController {
     var isNumber: Bool = false
     var isCharacteres: Bool = false
     
+    let pickerOptions = [
+        Constants.shared.shortPassword,
+        Constants.shared.mediumPassword,
+        Constants.shared.largePassword,
+        Constants.shared.superLargePassword
+    ]
+    var selectedSizeOption = "" {
+        didSet {
+            self.totalOfCaracteresView.field.text = selectedSizeOption
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupComponents()
+        createProfilePicker()
         // Do any additional setup after loading the view.
     }
     
@@ -98,7 +111,7 @@ class HomeViewController: UIViewController {
         button.setTitle(Constants.shared.generate, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .blue
+        button.backgroundColor = UIColor(hex: "#982465")
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.gray.cgColor
@@ -108,6 +121,13 @@ class HomeViewController: UIViewController {
     }()
     
     // MARK: - Setup Functions
+    func createProfilePicker() {
+        let profilePickerView = UIPickerView()
+        profilePickerView.delegate = self
+        profilePickerView.backgroundColor = UIColor.white
+        totalOfCaracteresView.field.inputView = profilePickerView
+    }
+    
     private func setupComponents() {
        
         [
@@ -168,6 +188,7 @@ class HomeViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func generateNewPasswords() {
+        
         guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits) else { return }
         
         let viewController = ShowListPasswordsViewController()
@@ -193,6 +214,24 @@ extension HomeViewController: SwitchViewDelegate {
         }
     }
     
+}
+
+extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerOptions[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSizeOption = pickerOptions[row]
+    }
 }
 
 extension String {
