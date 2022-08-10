@@ -120,6 +120,18 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var tips: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle(Constants.shared.securityTips, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        button.setTitleColor(UIColor(hex: "#982465"), for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openTips)))
+        return button
+    }()
+    
     // MARK: - Setup Functions
     func createProfilePicker() {
         let profilePickerView = UIPickerView()
@@ -138,6 +150,7 @@ class HomeViewController: UIViewController {
             upperLetterView,
             useNumberView,
             useSpecialCaracteresView,
+            tips,
             generateButton
         ].forEach({
             view.addSubview($0)
@@ -178,6 +191,11 @@ class HomeViewController: UIViewController {
             useSpecialCaracteresView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             useSpecialCaracteresView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
+            tips.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tips.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tips.heightAnchor.constraint(equalToConstant: 48),
+            
+            generateButton.topAnchor.constraint(equalTo: tips.bottomAnchor, constant: 16),
             generateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             generateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             generateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
@@ -189,12 +207,22 @@ class HomeViewController: UIViewController {
     
     @objc private func generateNewPasswords() {
         
-        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits) else { return }
+        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits) else {
+            self.showInfoAlert(theMessage: "Por favor, preencha todos os campos!")
+            return }
         
         let viewController = ShowListPasswordsViewController()
         viewController.requirements = PasswordModel(numberOfPasswords: totalPss, totalCharacteres: totalCharacteres, useLetters: isLowLetter, useNumbers: isNumber, useUpperCasedLetters: isUpperLetter, useSpecialChacaracters: isCharacteres)
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc private func openTips() {
+        // add new modal
+        let viewController = TipsViewController()
+        viewController.modalPresentationStyle = .popover
+        viewController.modalTransitionStyle = .coverVertical
+        navigationController?.present(viewController, animated: true, completion: nil)
     }
 }
 

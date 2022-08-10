@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE073BFC28A4565E00F72D7C /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE073BFB28A4565E00F72D7C /* TipsViewController.swift */; };
 		DE5B1DB028A1C47400832D81 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5B1DAF28A1C47400832D81 /* UIColor+Extensions.swift */; };
 		DE5B1DB328A1C64C00832D81 /* SavePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5B1DB228A1C64C00832D81 /* SavePasswordViewController.swift */; };
 		DE8119822899CDF300B48F59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8119812899CDF300B48F59 /* AppDelegate.swift */; };
@@ -28,9 +29,11 @@
 		DED3D999289B1F6300328994 /* PasswordGenerateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D998289B1F6300328994 /* PasswordGenerateModel.swift */; };
 		DED3D99D289B253100328994 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D99C289B253100328994 /* Threading.swift */; };
 		DED3D99F289B25A700328994 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */; };
+		DEF1589D28A303DE00BC4A68 /* TipsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF1589C28A303DE00BC4A68 /* TipsLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE073BFB28A4565E00F72D7C /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		DE5B1DAF28A1C47400832D81 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DE5B1DB228A1C64C00832D81 /* SavePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePasswordViewController.swift; sourceTree = "<group>"; };
 		DE81197E2899CDF300B48F59 /* PasswordGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasswordGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +58,7 @@
 		DED3D998289B1F6300328994 /* PasswordGenerateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerateModel.swift; sourceTree = "<group>"; };
 		DED3D99C289B253100328994 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		DED3D99E289B25A700328994 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		DEF1589C28A303DE00BC4A68 /* TipsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE073BFA28A4564200F72D7C /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				DE073BFB28A4565E00F72D7C /* TipsViewController.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
 		DE5B1DB128A1C63600832D81 /* Save Password */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,7 @@
 				DECCD96B289ADDBC006677C8 /* PasswordTableViewCell.swift */,
 				DEADE125289C7AFA00F81237 /* UIPicker+Extensions.swift */,
 				DEADE127289C81C400F81237 /* PickerViewComponent.swift */,
+				DEF1589C28A303DE00BC4A68 /* TipsLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -134,6 +147,7 @@
 		DE8119982899CFA900B48F59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE073BFA28A4564200F72D7C /* Tips */,
 				DE5B1DB128A1C63600832D81 /* Save Password */,
 				DED3D995289B1E5600328994 /* Show List Passwords */,
 				DED3D994289B1E4B00328994 /* Home */,
@@ -267,8 +281,10 @@
 				DE5B1DB328A1C64C00832D81 /* SavePasswordViewController.swift in Sources */,
 				DEADE128289C81C400F81237 /* PickerViewComponent.swift in Sources */,
 				DE81199F2899E7E500B48F59 /* PasswordManager.swift in Sources */,
+				DEF1589D28A303DE00BC4A68 /* TipsLabel.swift in Sources */,
 				DEADE126289C7AFA00F81237 /* UIPicker+Extensions.swift in Sources */,
 				DE8119862899CDF300B48F59 /* HomeViewController.swift in Sources */,
+				DE073BFC28A4565E00F72D7C /* TipsViewController.swift in Sources */,
 				DE8119822899CDF300B48F59 /* AppDelegate.swift in Sources */,
 				DECCD96C289ADDBC006677C8 /* PasswordTableViewCell.swift in Sources */,
 				DED3D99D289B253100328994 /* Threading.swift in Sources */,

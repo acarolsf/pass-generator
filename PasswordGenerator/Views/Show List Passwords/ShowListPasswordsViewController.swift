@@ -59,25 +59,10 @@ class ShowListPasswordsViewController: UIViewController {
         return button
     }()
     
-    private lazy var tips: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setTitle(Constants.shared.securityTips, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = UIColor(hex: "#982465")
-        button.layer.cornerRadius = 4
-        button.layer.borderWidth = 0.5
-        button.layer.borderColor = UIColor.gray.cgColor
-        button.layer.masksToBounds = true
-        button.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openTips)))
-        return button
-    }()
-    
     private func setupUI() {
         view.backgroundColor = UIColor(hex: "#F2F2F2")
         view.addSubview(uiTableView)
         view.addSubview(newPasswords)
-        view.addSubview(tips)
         
         setupConstraints()
     }
@@ -91,13 +76,8 @@ class ShowListPasswordsViewController: UIViewController {
             newPasswords.topAnchor.constraint(equalTo: uiTableView.bottomAnchor, constant: 16),
             newPasswords.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             newPasswords.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            newPasswords.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
             newPasswords.heightAnchor.constraint(equalToConstant: 48),
-            
-            tips.topAnchor.constraint(equalTo: newPasswords.bottomAnchor, constant: 16),
-            tips.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            tips.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            tips.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
-            tips.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
     
@@ -119,10 +99,6 @@ class ShowListPasswordsViewController: UIViewController {
     
     @objc private func newPass() {
         generateNewSecrets()
-    }
-    
-    @objc private func openTips() {
-        // add new modal
     }
 }
 
