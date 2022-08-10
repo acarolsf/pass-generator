@@ -203,12 +203,19 @@ class HomeViewController: UIViewController {
         ])
     }
     
+    func isRequirementsValid() -> Bool {
+        if isLowLetter || isNumber || isUpperLetter || isCharacteres {
+            return true
+        }
+        return false
+    }
+    
     // MARK: - Actions
     
     @objc private func generateNewPasswords() {
         
-        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits) else {
-            self.showInfoAlert(theMessage: "Por favor, preencha todos os campos!")
+        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits), isRequirementsValid() else {
+            self.showInfoAlert(theMessage: "Por favor, preencha todos os campos e selecione pelo menos um dos tipos de caracteres!")
             return }
         
         let viewController = ShowListPasswordsViewController()
