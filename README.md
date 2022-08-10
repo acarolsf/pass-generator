@@ -7,9 +7,9 @@ Password generator to generate new passwords when I need :x
 
 - [x] Generate passwords
 
-- [] Save password with a description
+- [ ] Save password with a description
 
-- [] Show password when user needs
+- [ ] Show password when user needs
 
 ----
 
@@ -20,15 +20,15 @@ Password generator to generate new passwords when I need :x
   
   - [x] English (EUA)
   
-- [] Password criptography
+- [ ] Password criptography
 
 
 ## Screens
-- [] Home
+- [ ] Home
 - [x] Pass filter generator
 - [x] Pass list
 - [x] Save pass
-- [] Success screen
+- [ ] Success screen
 
 ## Screenshots
 
