@@ -1,5 +1,7 @@
 # Password Generator
-Password generator to generate new passwords when I need :x
+Just a **Password generator** to generate new passwords when I need :x
+
+The project is not ready!
 
 
 ----
