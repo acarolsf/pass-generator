@@ -1,4 +1,4 @@
-# pass-generator
+# Password Generator
 Password generator to generate new passwords when I need :x
 
 
@@ -32,7 +32,7 @@ Password generator to generate new passwords when I need :x
 
 ## Screenshots
 
-Password filter generator | List of generated passwords | Save the pass
+Password filter generator | List of generated passwords | Save password
 ------------------------- | --------------------------- | --------------
 ![](/screenshots/pass-generator.png) | ![](/screenshots/pass-list.png) | ![](/screenshots/save-pass.png)
 
