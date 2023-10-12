@@ -9,15 +9,15 @@ import UIKit
 
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
-        let hexString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let hexString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         let scanner = Scanner(string: hexString)
 
         if hexString.hasPrefix("#") {
-            scanner.scanLocation = 1
+            scanner.currentIndex = hexString.index(after: hexString.startIndex)
         }
 
-        var color: UInt32 = 0
-        scanner.scanHexInt32(&color)
+        var color: UInt64 = 0
+        scanner.scanHexInt64(&color)
 
         let mask = 0x000000FF
         let r = Int(color >> 16) & mask
@@ -28,5 +28,6 @@ extension UIColor {
         let blue  = CGFloat(b) / 255.0
 
         self.init(red: red, green: green, blue: blue, alpha: alpha)
+        
     }
 }
