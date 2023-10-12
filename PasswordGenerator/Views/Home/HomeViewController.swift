@@ -163,7 +163,7 @@ class HomeViewController: UIViewController {
         
         NSLayoutConstraint.activate([
                      
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
@@ -196,7 +196,7 @@ class HomeViewController: UIViewController {
             tips.heightAnchor.constraint(equalToConstant: 48),
             
             generateButton.topAnchor.constraint(equalTo: tips.bottomAnchor, constant: 16),
-            generateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+            generateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             generateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             generateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             generateButton.heightAnchor.constraint(equalToConstant: 48)
