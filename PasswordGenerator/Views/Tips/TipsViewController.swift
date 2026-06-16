@@ -18,7 +18,7 @@ class TipsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ensureMainThread {
-            self.title = "Dicas de segurança"
+            self.title = LocalizationKeys.securityTips.localized
             self.navigationController?.isNavigationBarHidden = false
         }
     }
@@ -32,7 +32,7 @@ class TipsViewController: UIViewController {
     lazy var pageTitle: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Escolha uma senha segura"
+        label.text = LocalizationKeys.chooseSafePassword.localized
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = UIColor(hex: "#982465")
         label.textAlignment = .center
@@ -48,25 +48,25 @@ class TipsViewController: UIViewController {
     }()
     
     lazy var tipOne: TipsLabel = {
-        let label = TipsLabel(title: "1. Escolha senhas fáceis de lembrar.", texto: "Escolher senhas fáceis de lembrar evita que o usuário tenha que anotá-la em papéis e/ou arquivos, que podem chegar às mãos de pessoas erradas")
+        let label = TipsLabel(title: LocalizationKeys.tipOneTitle.localized, texto: LocalizationKeys.tipOneText.localized)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipTwo: TipsLabel = {
-        let label = TipsLabel(title: "2. Não use palavras reais.", texto: "Uma palavra que pode ser encontrada no dicionário pode facilitar o trabalho de invasores. Para tornar esse trabalho mais difícil, use frases ao invés de substantivos")
+        let label = TipsLabel(title: LocalizationKeys.tipTwoTitle.localized, texto: LocalizationKeys.tipTwoText.localized)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipThree: TipsLabel = {
-        let label = TipsLabel(title: "3. Combine maiúsculas, minúsculas, números e caracteres não alfanuméricos", texto: "Uma palavra que pode ser encontrada no dicionário pode facilitar o trabalho de invasores. Para tornar esse trabalho mais difícil, use frases ao invés de substantivos")
+        let label = TipsLabel(title: LocalizationKeys.tipThreeTitle.localized, texto: LocalizationKeys.tipThreeText.localized)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipFour: TipsLabel = {
-        let label = TipsLabel(title: "4. Não recicle senhas", texto: "Por exemplo, não use “senha1” , “senha321” ou qualquer senha semelhante. Escolha senhas aleatórias.")
+        let label = TipsLabel(title: LocalizationKeys.tipFourTitle.localized, texto: LocalizationKeys.tipFourText.localized)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

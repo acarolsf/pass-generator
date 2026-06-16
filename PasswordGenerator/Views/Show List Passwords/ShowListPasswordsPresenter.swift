@@ -30,7 +30,7 @@ class ShowListPasswordsPresenter {
                 self.view?.showPasswords()
             case .failure(let error):
                 if error as! RequestErrors == RequestErrors.noRequirement {
-                    self.view?.showAlertError(message: "Todos os campos precisam ser preenchidos!")
+                    self.view?.showAlertError(message: LocalizationKeys.allFieldsHasToBeFilled.localized)
                 }
             }
         }

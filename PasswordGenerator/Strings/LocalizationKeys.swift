@@ -1,5 +1,5 @@
 //
-//  Constants.swift
+//  LocalizationKeys.swift
 //  PasswordGenerator
 //
 //  Created by Ana Carolina Ferreira on 04/08/22.

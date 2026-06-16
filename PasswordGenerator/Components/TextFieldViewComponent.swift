@@ -9,9 +9,10 @@ import UIKit
 
 class TextFieldViewComponent: UIView {
 
-    init(titleLabel: String) {
+    init(titleLabel: String, keyboardType: UIKeyboardType = .default) {
         super.init(frame: .zero)
         title.text = titleLabel
+        field.keyboardType = keyboardType
         setupView()
     }
     

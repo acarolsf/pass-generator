@@ -39,10 +39,10 @@ extension UITextInput {
         let onCancel = onCancel ?? defaultAction
         let onDone = onDone ?? defaultAction
         
-        let cancelButton = UIBarButtonItem(title: "Cancelar", style: .plain, target: onCancel?.target, action: onCancel?.action)
+        let cancelButton = UIBarButtonItem(title: LocalizationKeys.cancel.localized, style: .plain, target: onCancel?.target, action: onCancel?.action)
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.blue], for: .normal)
         
-        let doneButton = UIBarButtonItem(title: "OK", style: .done, target: onDone?.target, action: onDone?.action)
+        let doneButton = UIBarButtonItem(title: LocalizationKeys.ok.localized, style: .done, target: onDone?.target, action: onDone?.action)
         doneButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.blue], for: .normal)
         
         let toolbar: UIToolbar = UIToolbar()

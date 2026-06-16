@@ -18,7 +18,7 @@ class SavePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Salvar senha"
+        title = LocalizationKeys.savePassword.localized
         setupUI()
     }
     
@@ -51,14 +51,14 @@ class SavePasswordViewController: UIViewController {
     }()
     
     private lazy var descriptionTextFieldView: TextFieldViewComponent = {
-        let textField = TextFieldViewComponent(titleLabel: "Descrição")
+        let textField = TextFieldViewComponent(titleLabel: LocalizationKeys.descriptionTextFieldView.localized)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private lazy var saveButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle(Constants.shared.save, for: .normal)
+        button.setTitle(LocalizationKeys.save.localized, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(hex: "#982465")
@@ -116,6 +116,6 @@ class SavePasswordViewController: UIViewController {
     
     @objc private func copySecret() {
         UIPasteboard.general.string = secret
-        self.showToast(message: "Senha copiada com sucesso!", font: .systemFont(ofSize: 16))
+        self.showToast(message: LocalizationKeys.copiedToClipboard.localized, font: .systemFont(ofSize: 16))
     }
 }

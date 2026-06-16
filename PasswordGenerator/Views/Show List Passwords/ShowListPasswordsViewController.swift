@@ -20,7 +20,7 @@ class ShowListPasswordsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = Constants.shared.listOfPasswords
+        title = LocalizationKeys.listOfPasswords.localized
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
             self.navigationController?.navigationBar.tintColor = .blue
@@ -47,7 +47,7 @@ class ShowListPasswordsViewController: UIViewController {
     
     private lazy var newPasswords: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle(Constants.shared.generateNewPasswords, for: .normal)
+        button.setTitle(LocalizationKeys.generateNewPasswords.localized, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(hex: "#982465")
@@ -94,7 +94,7 @@ class ShowListPasswordsViewController: UIViewController {
     private func generateNewSecrets() {
         if let requirements = requirements {
             presenter.getPasswords(required: requirements)
-        } else { showAlertError(message: Constants.shared.allFieldsHasToBeFilled) }
+        } else { showAlertError(message: LocalizationKeys.allFieldsHasToBeFilled.localized) }
     }
     
     @objc private func newPass() {
