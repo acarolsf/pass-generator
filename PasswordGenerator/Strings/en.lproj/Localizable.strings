@@ -6,19 +6,44 @@
   
 */
 
-"Gerador de senhas" = "Passwords generator";
-"Número de senhas" = "Number of passwords";
-"Total de caracteres" = "Total of characteres";
-"Usar letras minúsculas" = "Use lowercase letters";
-"Usar letras MAIÚSCULA" = "Use uppercase letters";
-"Usar números" = "Use numbers";
-"Usar caracteres especiais" = "Use special characteres";
-"Gerar" = "Generate";
-"Todos os campos precisam ser preenchidos!" = "All fields need to be filled!";
-"Lista de senhas" = "List of passwords";
-"Gerar novas senhas" = "Generate new passwords";
-"Dicas de segurança" = "Security tips";
-"Pequena - 6 dígitos" = "Short - 6 digits";
-"Média - 8 dígitos" = "Medium - 8 digits";
-"Grande - 10 dígitos" = "Large - 10 digits";
-"Muito grande - 12 dígitos" = "Super large - 12 digits";
+"app_name" = "Passwords generator";
+
+// HomeViewController
+"short_password" = "Short - 6 digits";
+"medium_password" = "Medium - 8 digits";
+"large_password" = "Large - 10 digits";
+"super_large_password" = "Super large - 12 digits";
+
+"number_of_passwords" = "Number of passwords";
+"total_of_characteres" = "Total of characteres";
+"lowercased_letters" = "Use lowercase letters";
+"uppercased_letters" = "Use UPPERCASE letters";
+"use_numbers" = "Use numbers";
+"use_special_characteres" = "Use special characteres";
+"generate" = "Generate";
+"unfilled_form" = "Please, all fields need to be filled and select at least one of kind of characteres!";
+"security_tips" = "Security tips";
+"choose_safe_password" = "Choose a safe password";
+"cancel" = "Cancel";
+"ok" = "OK";
+
+// ShowListPasswordViewController
+"list_of_passwords" = "List of passwords";
+"all_fields_has_to_be_filled" = "All fields need to be filled!";
+
+// SavePasswordViewController
+"save" = "Save";
+"save_password" = "Save password";
+"description_textField_view" = "Description";
+"generate_new_passwords" = "Generate new passwords";
+"copied_to_clipboard" = "Password copied to clipboard!";
+
+// TipsViewController
+"tip_one_title" = "1. Choose Passwords That Are Easy to Remember";
+"tip_one_text" = "Choosing passwords that are easy to remember helps users avoid writing them down on paper or storing them in files, which could end up in the wrong hands.";
+"tip_two_title" = "2. Don't Use Real Words";
+"tip_two_text" = "A word that can be found in a dictionary may make an attacker's job easier. To make it more difficult, use phrases instead of single nouns.";
+"tip_three_title" = "3. Combine Uppercase, Lowercase, Numbers, and Special Characters";
+"tip_three_text" = "A word that can be found in a dictionary may make an attacker's job easier. To make it more difficult, use phrases instead of single nouns.";
+"tip_four_title" = "4. Don't Reuse Passwords";
+"tip_four_text" = "For example, don't use \"password1\", \"password321\", or any similar password. Choose random passwords instead.";

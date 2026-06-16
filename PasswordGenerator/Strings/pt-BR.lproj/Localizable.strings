@@ -6,19 +6,44 @@
   
 */
 
-"Gerador de senhas" = "Gerador de senhas";
-"Número de senhas" = "Número de senhas";
-"Total de caracteres" = "Total de caracteres";
-"Usar letras minúsculas" = "Usar letras minúsculas";
-"Usar letras MAIÚSCULA" = "Usar letras MAIÚSCULA";
-"Usar números" = "Usar números";
-"Usar caracteres especiais" = "Usar caracteres especiais";
-"Gerar" = "Gerar";
-"Todos os campos precisam ser preenchidos!" = "Todos os campos precisam ser preenchidos!";
-"Lista de senhas" = "Lista de senhas";
-"Gerar novas senhas" = "Gerar novas senhas";
-"Dicas de segurança" = "Dicas de segurança";
-"Pequena - 6 dígitos" = "Pequena - 6 dígitos";
-"Média - 8 dígitos" = "Média - 8 dígitos";
-"Grande - 10 dígitos" = "Grande - 10 dígitos";
-"Muito grande - 12 dígitos" = "Muito grande - 12 dígitos";
+"app_name" = "Gerador de Senha";
+
+// HomeViewController
+"short_password" = "Pequena - 6 dígitos";
+"medium_password" = "Média - 8 dígitos";
+"large_password" = "Grande - 10 dígitos";
+"super_large_password" = "Muito grande - 12 dígitos";
+
+"number_of_passwords" = "Número de senhas";
+"total_of_characteres" = "Total de caracteres";
+"lowercased_letters" = "Usar letras minúsculas";
+"uppercased_letters" = "Usar letras MAIÚSCULAS";
+"use_numbers" = "Usar números";
+"use_special_characteres" = "Usar caracteres especiais";
+"generate" = "Gerar";
+"unfilled_form" = "Por favor, preencha todos os campos e selecione pelo menos um dos tipos de caracteres!";
+"security_tips" = "Dicas de segurança";
+"choose_safe_password" = "Escolha uma senha segura";
+"cancel" = "Cancelar";
+"ok" = "OK";
+
+// ShowListPasswordViewController
+"list_of_passwords" = "Lista de senhas";
+"all_fields_has_to_be_filled" = "Todos os campos precisam ser preenchidos!";
+
+// SavePasswordViewController
+"save" = "Salvar";
+"save_password" = "Salvar senha";
+"description_textField_view" = "Descrição";
+"generate_new_passwords" = "Gerar novas senhas";
+"copied_to_clipboard" = "Senha copiada com sucesso!";
+
+// TipsViewController
+"tip_one_title" = "1. Escolha senhas fáceis de lembrar";
+"tip_one_text" = "Escolher senhas fáceis de lembrar evita que o usuário tenha que anotá-la em papéis e/ou arquivos, que podem chegar às mãos de pessoas erradas";
+"tip_two_title" = "2. Não use palavras reais";
+"tip_two_text" = "Uma palavra que pode ser encontrada no dicionário pode facilitar o trabalho de invasores. Para tornar esse trabalho mais difícil, use frases ao invés de substantivos.";
+"tip_three_title" = "3. Combine maiúsculas, minúsculas, números e caracteres não alfanuméricos";
+"tip_three_text" = "Uma palavra que pode ser encontrada no dicionário pode facilitar o trabalho de invasores. Para tornar esse trabalho mais difícil, use frases ao invés de substantivos";
+"tip_four_title" = "4. Não recicle senhas";
+"tip_four_text" = "Por exemplo, não use \"senha1\" , \"senha321\" ou qualquer senha semelhante. Escolha senhas aleatórias.";
