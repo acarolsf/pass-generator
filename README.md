@@ -1,6 +1,8 @@
 # Password Generator
 Just a **Password generator** to generate new passwords when I need :x
 
+I also used this project to study about Localization (L10n) and Internationalization (i18n).
+
 The project is not ready!
 
 
@@ -16,7 +18,7 @@ The project is not ready!
 ----
 
 ## Secondary features
-- [x] Internationalization
+- [x] Localization
 
   - [x] Portuguese (Brazil)
   
@@ -40,4 +42,4 @@ Password filter generator | List of generated passwords | Save password
 
 
 ## Contribution
-If you want to contribute, feel free to fork and send me a pull rerquest.
+If you want to contribute, feel free to fork and send me a pull request.

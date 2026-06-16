@@ -9,18 +9,14 @@ import Foundation
 
 enum LocalizationKeys {
     static let appName = "app_name"
+    
+    // MARK: - HomeViewController
     static let numberOfPasswords = "number_of_passwords"
     static let totalOfCharacteres = "total_of_characteres"
     static let lowercasedLetters = "lowercased_letters"
     static let uppercasedLetters = "uppercased_letters"
     static let useNumbers = "use_numbers"
     static let useSpecialCharacteres = "use_special_characteres"
-    static let generate = "generate"
-    static let allFieldsHasToBeFilled = "all_fields_has_to_be_filled"
-    static let listOfPasswords = "list_of_passwords"
-    static let copyToClipboard = "copy_to_clipboard"
-    static let copiedToClipboard = "copied_to_clipboard"
-    static let generateNewPasswords = "generate_new_passwords"
     static let securityTips = "security_tips"
     static let chooseSafePassword = "choose_safe_password"
     static let unfilledForm = "unfilled_form"
@@ -28,16 +24,25 @@ enum LocalizationKeys {
     static let cancel = "cancel"
     static let ok = "ok"
     
-    static let savePassword = "save_password"
-    static let descriptionTextFieldView = "description_textField_view"
-    
     // MARK: - Size of passwords
     static let shortPassword = "short_password"
     static let mediumPassword = "medium_password"
     static let largePassword = "large_password"
     static let superLargePassword = "super_large_password"
     
-    // Tips
+    // MARK: - ShowListPasswordViewController
+    static let allFieldsHasToBeFilled = "all_fields_has_to_be_filled"
+    static let listOfPasswords = "list_of_passwords"
+    
+    // MARK: - SavePasswordViewController
+    static let savePassword = "save_password"
+    static let descriptionTextFieldView = "description_textField_view"
+    static let generate = "generate"
+    static let copyToClipboard = "copy_to_clipboard"
+    static let copiedToClipboard = "copied_to_clipboard"
+    static let generateNewPasswords = "generate_new_passwords"
+    
+    // MARK: - TipsViewController
     static let tipOneTitle = "tip_one_title"
     static let tipOneText = "tip_one_text"
     static let tipTwoTitle = "tip_two_title"
