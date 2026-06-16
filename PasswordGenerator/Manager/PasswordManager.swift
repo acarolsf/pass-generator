@@ -17,10 +17,10 @@ class PasswordManager {
     private let numbers = "0123456789"
     
     func getRequiredData(requirements: PasswordModel, completion: @escaping(Result<[String], Error>) -> Void) {
-        var num = min(requirements.totalCharacteres, 16)
+        var num = min(requirements.numberOfPasswords, 16)
         num = max(num, 1)
         self.requirements = requirements
-        self.requirements?.totalCharacteres = num
+        self.requirements?.numberOfPasswords = num
         
         generate(total: num, completion: completion)
     }
