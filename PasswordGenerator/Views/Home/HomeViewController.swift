@@ -14,15 +14,9 @@ class HomeViewController: UIViewController {
     var isNumber: Bool = false
     var isCharacteres: Bool = false
     
-    let pickerOptions = [
-        Constants.shared.shortPassword,
-        Constants.shared.mediumPassword,
-        Constants.shared.largePassword,
-        Constants.shared.superLargePassword
-    ]
-    var selectedSizeOption = "" {
+    var selectedSizeOption: CharactersSize? {
         didSet {
-            self.totalOfCaracteresView.field.text = selectedSizeOption
+            self.totalOfCaracteresView.field.text = selectedSizeOption?.label
         }
     }
     
@@ -55,7 +49,7 @@ class HomeViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = Constants.shared.appName
+        label.text = LocalizationKeys.appName.localized
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -63,19 +57,19 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var numberOfPasswordsView: TextFieldViewComponent = {
-        let component = TextFieldViewComponent(titleLabel: Constants.shared.numberOfPasswords)
+        let component = TextFieldViewComponent(titleLabel: LocalizationKeys.numberOfPasswords.localized, keyboardType: .numberPad)
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
     }()
     
     private lazy var totalOfCaracteresView: TextFieldViewComponent = {
-        let component = TextFieldViewComponent(titleLabel: Constants.shared.totalOfCharacteres)
+        let component = TextFieldViewComponent(titleLabel: LocalizationKeys.totalOfCharacteres.localized)
         component.translatesAutoresizingMaskIntoConstraints = false
         return component
     }()
     
     private lazy var lowLetterView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: Constants.shared.lowercasedLetters)
+        let component = SwitchComponent(titleLabel: LocalizationKeys.lowercasedLetters.localized)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 0
@@ -83,7 +77,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var upperLetterView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: Constants.shared.uppercasedLetters)
+        let component = SwitchComponent(titleLabel: LocalizationKeys.uppercasedLetters.localized)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 1
@@ -91,7 +85,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var useNumberView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: Constants.shared.useNumbers)
+        let component = SwitchComponent(titleLabel: LocalizationKeys.useNumbers.localized)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 2
@@ -99,7 +93,7 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var useSpecialCaracteresView: SwitchComponent = {
-        let component = SwitchComponent(titleLabel: Constants.shared.useSpecialCharacteres)
+        let component = SwitchComponent(titleLabel: LocalizationKeys.useSpecialCharacteres.localized)
         component.translatesAutoresizingMaskIntoConstraints = false
         component.delegate = self
         component.switchTag = 3
@@ -108,7 +102,7 @@ class HomeViewController: UIViewController {
     
     private lazy var generateButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle(Constants.shared.generate, for: .normal)
+        button.setTitle(LocalizationKeys.generate.localized, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(hex: "#982465")
@@ -122,7 +116,7 @@ class HomeViewController: UIViewController {
     
     private lazy var tips: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setTitle(Constants.shared.securityTips, for: .normal)
+        button.setTitle(LocalizationKeys.securityTips.localized, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.setTitleColor(UIColor(hex: "#982465"), for: .normal)
@@ -214,8 +208,8 @@ class HomeViewController: UIViewController {
     
     @objc private func generateNewPasswords() {
         
-        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = Int(totalOfCaracteresView.getFieldData()!.digits), isRequirementsValid() else {
-            self.showInfoAlert(theMessage: "Por favor, preencha todos os campos e selecione pelo menos um dos tipos de caracteres!")
+        guard let totalPss = Int(numberOfPasswordsView.getFieldData()!.digits), let totalCharacteres = selectedSizeOption?.size, isRequirementsValid() else {
+            self.showInfoAlert(theMessage: LocalizationKeys.unfilledForm.localized)
             return }
         
         let viewController = ShowListPasswordsViewController()
@@ -257,21 +251,14 @@ extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerOptions.count
+        return CharactersSize.allCases.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerOptions[row]
+        return CharactersSize.allCases[row].label
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedSizeOption = pickerOptions[row]
-    }
-}
-
-extension String {
-    var digits: String {
-        return components(separatedBy: CharacterSet.decimalDigits.inverted)
-            .joined()
+        selectedSizeOption = CharactersSize.allCases[row]
     }
 }
