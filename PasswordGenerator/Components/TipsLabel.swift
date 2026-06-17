@@ -59,7 +59,7 @@ class TipsLabel: UIView {
             
             tipContent.topAnchor.constraint(equalTo: tipTitle.bottomAnchor, constant: 8),
             tipContent.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tipContent.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tipContent.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             tipContent.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])

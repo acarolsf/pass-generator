@@ -26,6 +26,7 @@ class TipsViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.scrollsToTop = true
         return view
     }()
     
@@ -49,25 +50,21 @@ class TipsViewController: UIViewController {
     
     lazy var tipOne: TipsLabel = {
         let label = TipsLabel(title: LocalizationKeys.tipOneTitle.localized, texto: LocalizationKeys.tipOneText.localized)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipTwo: TipsLabel = {
         let label = TipsLabel(title: LocalizationKeys.tipTwoTitle.localized, texto: LocalizationKeys.tipTwoText.localized)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipThree: TipsLabel = {
         let label = TipsLabel(title: LocalizationKeys.tipThreeTitle.localized, texto: LocalizationKeys.tipThreeText.localized)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var tipFour: TipsLabel = {
         let label = TipsLabel(title: LocalizationKeys.tipFourTitle.localized, texto: LocalizationKeys.tipFourText.localized)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -95,15 +92,16 @@ class TipsViewController: UIViewController {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 24),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -12),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             
-            stackView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            stackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             mainViewHeightConstraint,
         ])
     }
