@@ -19,7 +19,7 @@ The project is not ready!
 
 ## Secondary features
 
-O projeto foi estruturado para separar completamente as strings de interface da lógica do código. Isso permite escalabilidade para adicionar novos idiomas no futuro sem a necessidade de alterar as views ou controladores do app.
+The project was structured to completely separate UI strings from the application's business logic. This approach enables scalability for adding new languages in the future without requiring changes to the app's views or controllers.
 
 - [x] Localization
 
@@ -27,17 +27,17 @@ O projeto foi estruturado para separar completamente as strings de interface da 
   
   - [x] English (EUA)
 
-### Estrutura de Arquivos
+### File Structure
 
-A organização dos recursos de tradução foi centralizada e estruturada da seguinte forma:
+The translation resources were centralized and organized as follows:
 
 ```text
 ├── Resources/
 │   ├── en.lproj/
-│   │   └── Localizable.strings  <- Strings localizadas para Inglês
+│   │   └── Localizable.strings  <- Localized strings for English
 │   ├── pt.lproj/
-│   │   └── Localizable.strings  <- Strings localizadas para Português
-│   └── LocalizationKeys.swift   <- Centralização das chaves e helper de tradução
+│   │   └── Localizable.strings  <- Localized strings for Portuguese
+│   └── LocalizationKeys.swift   <- Centralized localization keys and translation helper
 ```
 
 ## Screens
